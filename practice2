@@ -1,0 +1,43 @@
+function generateHashtag (str) {
+
+  if (str === '') {
+
+    return false;
+  }
+
+  let hashTag = '';
+
+  for (let i = 0; i < str.length; i++) {
+
+    let curr = str[i];
+
+    if (str[i-1] === ' ') {
+
+      curr = curr.toUpperCase();
+    }
+
+    if (curr !== ' ') {
+      
+      hashTag += curr;
+
+    }
+    
+  }
+
+  if (hashTag === '') {
+
+    return false;
+  }
+
+  hashTag = (hashTag[0].toUpperCase() + hashTag.slice(1)).trim();
+
+  if (hashTag.length <= 139) {
+
+    return '#' + hashTag;
+  
+  } else {
+
+    return false;
+  }
+
+}
